@@ -1,10 +1,10 @@
-# WebOps Task – Rails API
+# 🌐 WebOps Task – Rails API
 
 ## 📌 Overview
 
-This is a Ruby on Rails 8 API-only application built for a WebOps task.
-It offers a full-featured backend for user authentication, post management with tagging, and nested commenting.
-The app is containerized with Docker, uses JWT for secure access, and includes a Postman collection for easy API testing.
+This is an **API-only Ruby on Rails 8** application developed for a WebOps task.  
+It features robust user authentication, post creation with tagging, and nested commenting functionality.  
+The app is containerized with **Docker**, leverages **JWT** for secure access, and includes a **Postman** collection for easy API testing.
 
 ---
 
@@ -12,67 +12,75 @@ The app is containerized with Docker, uses JWT for secure access, and includes a
 
 ### 🔐 Authentication & Authorization
 
-- **JWT-Based Authentication**
-
-  - Secure login/signup with email and password.
-  - All API routes require a valid JWT token.
-
-- **User Model Fields**
+- Secure JWT-based login/signup using email and password.
+- All API routes are protected and require a valid token.
+- **User Model Fields:**
   - `name`
   - `email`
   - `password_digest`
   - `image` (optional)
 
----
-
 ### 📝 Post Management
 
-- **Post Model Fields**
-
+- **Post Model Fields:**
   - `title`
   - `body`
   - `user_id` (author)
   - `tags` (at least one required)
-  - Auto-expiry: posts are deleted **24 hours** after creation via background job.
-
-- **CRUD Capabilities**
-  - Create, update, and delete (only your own posts).
-  - Add/update tags dynamically.
-  - Posts auto-deleted via background job (demo below).
-
----
+- Only post owners can update/delete their posts.
+- Posts **auto-delete 24 hours after creation** using background jobs.
 
 ### 💬 Commenting System
 
 - Users can comment on any post.
-- Only comment authors can update or delete their comments.
+- Only the comment author can edit or delete a comment.
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
-- **Backend**: Ruby on Rails 8 (API mode)
-- **Database**: PostgreSQL
-- **Authentication**: JWT
-- **Background Jobs**: Sidekiq
-- **Testing**: RSpec
-- **Containerization**: Docker & Docker Compose
+| Layer          | Tech                       |
+| -------------- | -------------------------- |
+| **Backend**    | Ruby on Rails 8 (API mode) |
+| **Database**   | PostgreSQL                 |
+| **Auth**       | JWT                        |
+| **Background** | Sidekiq                    |
+| **Testing**    | RSpec                      |
+| **Container**  | Docker & Docker Compose    |
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Getting Started
 
-1. **Clone the Repository**
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/PaulaMagdi0/Blog-Application.git
 cd Blog-Application
+```
 
-## How to run?
-- have docker installed on your machine
-- run `docker-compose up` command
+### 2️⃣ Run the App
 
+Make sure Docker is installed, then run:
 
-- you can use the command `rspec` to test your API end points.
+```bash
+docker-compose up
+```
+
+### 3️⃣ Run Tests
+
+To run RSpec tests for API endpoints:
+
+```bash
 bundle exec rspec spec/requests/api_spec.rb --format documentation
 ```
+
+---
+
+## 📫 Contact
+
+For any questions, feel free to open an issue or contact the repository owner.
+
+---
+
+Happy coding! 💻✨
