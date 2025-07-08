@@ -27,5 +27,5 @@ COPY . .
 # Expose Rails port
 EXPOSE 3000
 
-# Start Rails server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Start Rails server after resetting the database
+CMD bash -c "bundle exec rake db:drop db:create db:migrate && rails server -b 0.0.0.0"
